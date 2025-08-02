@@ -176,28 +176,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 🙏 Acknowledgments
-
-- **Framer Motion** for smooth animations
-- **Tailwind CSS** for utility-first styling
-- **React Icons** for beautiful icons
-- **EmailJS** for contact form functionality
-- **Vite** for lightning-fast development
-
----
-
-## 📞 Contact
-
-**Aniket Dahire** - [aniketdahire476@gmail.com](mailto:aniketdahire476@gmail.com)
-
-**Portfolio Link**: [https://aniket-portfolio-lac.vercel.app](https://aniket-portfolio-lac.vercel.app)
-
-**LinkedIn**: [https://linkedin.com/in/aniket-dahire](https://linkedin.com/in/aniket-dahire)
-
-**GitHub**: [https://github.com/aniketdahire](https://github.com/aniketdahire)
-
----
-
 <div align="center">
 
 **⭐ Star this repository if you found it helpful!**
