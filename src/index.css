@@ -1,0 +1,328 @@
+@import "tailwindcss";
+
+/* Modern Elegant Theme - Clean and Minimal */
+:root {
+  --primary: #3b82f6;
+  --secondary: #8b5cf6;
+  --accent: #06b6d4;
+  --dark: #1e293b;
+  --light: #f8fafc;
+  --text: #334155;
+  --text-light: #64748b;
+}
+
+body {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  color: var(--text);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Clean animations - reduced effects */
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Modern hover effects */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Optimized smooth scrolling for better performance */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Better accuracy for navbar height */
+}
+
+/* Optimized scroll behavior */
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Fast scroll animations */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+/* Optimized scroll performance */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Prevent layout shifts during scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimize for smooth scrolling */
+body {
+  -webkit-overflow-scrolling: touch; /* For iOS smooth scrolling */
+}
+
+/* Reduce scroll lag */
+.scroll-container {
+  will-change: scroll-position;
+  transform: translateZ(0); /* Force hardware acceleration */
+}
+
+/* Clean scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Enhanced navbar effects */
+.navbar-glass {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Resume button animation */
+.resume-btn {
+  background: linear-gradient(135deg, #10b981, #059669);
+  transition: all 0.3s ease;
+}
+
+.resume-btn:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+}
+
+/* Enhanced mobile menu */
+.mobile-menu {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Enhanced animations */
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger animation for lists */
+.stagger-item {
+  animation: staggerIn 0.6s ease-out forwards;
+}
+
+@keyframes staggerIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modern components */
+.card-modern {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.card-modern:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.btn-modern {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn-modern:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Skill slider */
+.skill-slider {
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-slide {
+  transition: transform 0.3s ease;
+}
+
+.skill-slide:hover {
+  transform: scale(1.05);
+}
+
+/* Project modal */
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Prevent body scroll when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Responsive design improvements */
+@media (max-width: 640px) {
+  .card-modern {
+    margin: 0.5rem;
+  }
+
+  .btn-modern {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+  }
+
+  .gradient-text {
+    font-size: 1.875rem;
+  }
+}
+
+/* Mobile-first responsive utilities */
+.mobile-padding {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .mobile-padding {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+  .hover-lift:hover {
+    transform: none;
+  }
+
+  .skill-slide:hover {
+    transform: none;
+  }
+}
+
+/* Hide scrollbar for modal content */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
