@@ -16,7 +16,7 @@
 
 ---
 
-🎯 **Live Preview**: [aniket-dahire.vercel.app](https://aniket-dahire.vercel.app)  
+🎯 **Live Preview**: [aniket-portfolio-lac.vercel.app](https://aniket-portfolio-lac.vercel.app)  
 📫 **Contact**: [aniketdahire476@gmail.com](mailto:aniketdahire476@gmail.com)  
 💼 **LinkedIn**: [linkedin.com/in/aniket-dahire](https://linkedin.com/in/aniket-dahire)
 
@@ -190,7 +190,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Aniket Dahire** - [aniketdahire476@gmail.com](mailto:aniketdahire476@gmail.com)
 
-**Portfolio Link**: [https://your-portfolio-url.com](https://your-portfolio-url.com)
+**Portfolio Link**: [https://aniket-portfolio-lac.vercel.app](https://aniket-portfolio-lac.vercel.app)
 
 **LinkedIn**: [https://linkedin.com/in/aniket-dahire](https://linkedin.com/in/aniket-dahire)
 
