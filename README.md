@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<a href="https://aniket-dahire.vercel.app" target="_blank">
+<a href="https://aniketdahireportfolio.vercel.app" target="_blank">
   <img src="https://img.shields.io/badge/Status-Live-brightgreen?style=for-the-badge" />
 </a>
 <img src="https://img.shields.io/badge/React-19.1.0-blue?style=for-the-badge&logo=react&logoColor=white" />
@@ -16,7 +16,7 @@
 
 ---
 
-🎯 **Live Preview**: [aniket-portfolio-lac.vercel.app](https://aniket-portfolio-lac.vercel.app)  
+🎯 **Live Preview**: [aniketdahireportfolio.vercel.app](https://aniketdahireportfolio.vercel.app)  
 📫 **Contact**: [aniketdahire476@gmail.com](mailto:aniketdahire476@gmail.com)  
 💼 **LinkedIn**: [linkedin.com/in/aniket-dahire](https://linkedin.com/in/aniket-dahire)
 

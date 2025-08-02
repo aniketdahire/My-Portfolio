@@ -45,23 +45,26 @@ export default function Navbar() {
     if (window.isScrolling) return;
     window.isScrolling = true;
 
-    // More accurate scroll behavior
+    // Optimized scroll behavior with better performance
     const element = document.getElementById(item.to);
     if (element) {
-      const navbarHeight = 100; // Account for navbar height + padding
+      const navbarHeight = 80; // Reduced for better accuracy
       const elementRect = element.getBoundingClientRect();
       const elementPosition =
         window.pageYOffset + elementRect.top - navbarHeight;
 
-      window.scrollTo({
-        top: elementPosition,
-        behavior: "smooth",
+      // Use requestAnimationFrame for smoother scrolling
+      requestAnimationFrame(() => {
+        window.scrollTo({
+          top: elementPosition,
+          behavior: "smooth",
+        });
       });
 
-      // Reset scroll lock after animation
+      // Reset scroll lock after animation (reduced time)
       setTimeout(() => {
         window.isScrolling = false;
-      }, 600);
+      }, 500);
     } else {
       window.isScrolling = false;
     }
@@ -111,7 +114,7 @@ export default function Navbar() {
                 spy
                 smooth
                 offset={-80}
-                duration={600}
+                duration={400}
                 delay={0}
                 onSetActive={() => setActive(item.to)}
                 onClick={() => handleNavLinkClick(item)}
