@@ -12,7 +12,7 @@ dist
 dist-ssr
 *.local
 .env.local
-EMAILJS_CONFIG.js
+EMAILJS_SETUP.md    
 SECURITY_AUDIT.md
 
 # Editor directories and files
