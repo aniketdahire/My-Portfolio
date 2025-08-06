@@ -93,9 +93,10 @@ export default function Navbar() {
         >
           <span className="sr-only">Go to homepage</span>
           <div className="relative">
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            {/* <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
               AniketDahire
-            </span>
+            </span> */}
+            <img src="/logo.png" alt="" width={"120px"} />
             <motion.div
               className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 rounded-full"
               initial={{ scaleX: 0 }}
