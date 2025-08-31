@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   FaReact,
@@ -9,7 +9,6 @@ import {
   FaCss3Alt,
   FaJs,
   FaGit,
-  FaDocker,
   FaCloud,
 } from "react-icons/fa";
 import {
@@ -26,6 +25,10 @@ import {
 
 const SkillSlider = () => {
   const [isPaused, setIsPaused] = useState(false);
+  const containerRef = useRef(null);
+  const animationRef = useRef(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [skillWidth, setSkillWidth] = useState(120);
 
   const skills = [
     { name: "React", icon: FaReact, color: "#61DAFB" },
@@ -44,36 +47,90 @@ const SkillSlider = () => {
     { name: "RedHat", icon: SiRedhat, color: "#EE0000" },
     { name: "Ansible", icon: SiAnsible, color: "#EE0000" },
     { name: "Git", icon: FaGit, color: "#F05032" },
-    { name: "Docker", icon: FaDocker, color: "#2496ED" },
     { name: "Vercel", icon: SiVercel, color: "#000000" },
     { name: "SQL", icon: FaDatabase, color: "#336791" },
   ];
 
+  // Responsive skill width calculation
+  useEffect(() => {
+    const updateSkillWidth = () => {
+      if (window.innerWidth < 640) {
+        setSkillWidth(100); // Mobile
+      } else if (window.innerWidth < 1024) {
+        setSkillWidth(110); // Tablet
+      } else {
+        setSkillWidth(120); // Desktop
+      }
+    };
+
+    updateSkillWidth();
+    window.addEventListener("resize", updateSkillWidth);
+    return () => window.removeEventListener("resize", updateSkillWidth);
+  }, []);
+
+  // Calculate total width for seamless loop
+  const totalWidth = skills.length * skillWidth;
+
+  const startAnimation = () => {
+    if (animationRef.current) return;
+
+    const animate = () => {
+      if (!isPaused) {
+        setScrollPosition((prev) => {
+          const newPos = prev - 0.8; // Slower, smoother movement
+          // Reset position for seamless loop
+          if (newPos <= -totalWidth) {
+            return 0;
+          }
+          return newPos;
+        });
+      }
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+  };
+
+  const stopAnimation = () => {
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+      animationRef.current = null;
+    }
+  };
+
+  useEffect(() => {
+    startAnimation();
+    return () => stopAnimation();
+  }, [isPaused, totalWidth]);
+
   return (
-    <div
-      className="skill-slider py-4 sm:py-8 overflow-hidden"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      <div className="flex gap-4 sm:gap-8 animate-scroll">
+    <div className="skill-slider py-4 sm:py-6 lg:py-8 overflow-hidden">
+      <div
+        ref={containerRef}
+        className="flex gap-3 sm:gap-4 lg:gap-8"
+        style={{
+          transform: `translateX(${scrollPosition}px)`,
+          transition: isPaused ? "none" : "transform 0.05s linear",
+        }}
+      >
         {/* First set of skills */}
         {skills.map((skill, index) => (
           <motion.div
             key={`first-${index}`}
-            className="skill-slide flex flex-col items-center gap-2 p-3 sm:p-4 bg-white rounded-lg shadow-md min-w-[100px] sm:min-w-[120px]"
-            whileHover={{ scale: 1.05, y: -5 }}
-            animate={isPaused ? { x: 0 } : { x: [0, -1000] }}
-            transition={{
-              duration: isPaused ? 0 : 20,
-              repeat: isPaused ? 0 : Infinity,
-              ease: "linear",
+            className="skill-slide flex flex-col items-center gap-2 p-2 sm:p-3 lg:p-4 bg-white rounded-lg shadow-md min-w-[80px] sm:min-w-[100px] lg:min-w-[120px] hover:shadow-lg transition-all duration-300"
+            whileHover={{
+              scale: 1.05,
+              y: -5,
+              transition: { duration: 0.2, ease: "easeOut" },
             }}
+            onHoverStart={() => setIsPaused(true)}
+            onHoverEnd={() => setIsPaused(false)}
           >
             <skill.icon
-              className="text-2xl sm:text-3xl"
+              className="text-xl sm:text-2xl lg:text-3xl"
               style={{ color: skill.color }}
             />
-            <span className="text-xs sm:text-sm font-medium text-gray-700 text-center">
+            <span className="text-xs sm:text-sm font-medium text-gray-700 text-center leading-tight">
               {skill.name}
             </span>
           </motion.div>
@@ -83,21 +140,20 @@ const SkillSlider = () => {
         {skills.map((skill, index) => (
           <motion.div
             key={`second-${index}`}
-            className="skill-slide flex flex-col items-center gap-2 p-3 sm:p-4 bg-white rounded-lg shadow-md min-w-[100px] sm:min-w-[120px]"
-            whileHover={{ scale: 1.05, y: -5 }}
-            animate={isPaused ? { x: 0 } : { x: [0, -1000] }}
-            transition={{
-              duration: isPaused ? 0 : 20,
-              repeat: isPaused ? 0 : Infinity,
-              ease: "linear",
-              delay: 10,
+            className="skill-slide flex flex-col items-center gap-2 p-2 sm:p-3 lg:p-4 bg-white rounded-lg shadow-md min-w-[80px] sm:min-w-[100px] lg:min-w-[120px] hover:shadow-lg transition-all duration-300"
+            whileHover={{
+              scale: 1.05,
+              y: -5,
+              transition: { duration: 0.2, ease: "easeOut" },
             }}
+            onHoverStart={() => setIsPaused(true)}
+            onHoverEnd={() => setIsPaused(false)}
           >
             <skill.icon
-              className="text-2xl sm:text-3xl"
+              className="text-xl sm:text-2xl lg:text-3xl"
               style={{ color: skill.color }}
             />
-            <span className="text-xs sm:text-sm font-medium text-gray-700 text-center">
+            <span className="text-xs sm:text-sm font-medium text-gray-700 text-center leading-tight">
               {skill.name}
             </span>
           </motion.div>

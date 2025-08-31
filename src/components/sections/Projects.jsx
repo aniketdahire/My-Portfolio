@@ -137,7 +137,7 @@ const projects = [
     description:
       "A professional website for an electrical business to showcase services, completed projects, and allow customers to get in touch, boosting the company's online presence.",
     technologies: ["Next.js", "Tailwind CSS", "EmailJS", "Framer Motion"],
-    github: "https://github.com/aniketdahire/electrical-website", // <-- Replace with actual link if available
+    github: "https://github.com/aniketdahire/Atharwa-Electrical-website.git", // <-- Replace with actual link if available
     live: "https://atharvaelectricals.vercel.app",
     image: "/ProjectImges/atharvaelectricals.jpg",
     features: [
